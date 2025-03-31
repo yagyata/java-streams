@@ -1,0 +1,200 @@
+OOPS :- Programming paradigm(programming karne a tareeka)
+in which we deal with class and objects.
+
+OOPS is a programming paradigm that organizes the software design around objects rather than functions and logic
+
+OOPS (Object Oriented) :- Classes and objects.
+			  Treats data as objects
+			  Bottom-up approach
+			  More secure (encapsulation, access modifiers)
+
+POP (Procedural Programming) :- Functions and procedures.
+				Treats code as sequence of steps
+				Top-down approach		
+				Less Secure
+
+Class :- A template that defines the structure and behaviour of objects.
+It acts as a blueprint for creating multiple instances(objects)
+for eg we can make a class Car, which is a structure and to define the structure we can make some attributes like Brand, Model, Colour and a car can have various functions like start, accelerate, brake, 
+We can create objects based on this blueprint, Each object can have different values but the structure remains the same.
+No memory is allocated until an object is made (stored in method area)
+
+Objects (Properties and Behaviour):- A real world entity created using class, while class is just a blueprint, the object is an actual instance that has its own data, Think of Car as a class and ford, suv as objects.
+Multiple objects can be created from each class
+Memory allocated in heap for each object.
+
+Constructors :- A special method in class that is used to initialize objects, it is called automatically when object of class is created.
+Use of Constructors :- To initialize an object when it is created,
+		       To set default values for attributes.
+		       To avoid calling separate setter methods
+Some key points while using Constructor:-
+The constructor name must be same as the class name, it does not have a return type, automatically called when an object is created.
+Types of constructors in java:-
+Default constructor
+Parameterized constructor
+Constructor overloading 
+Copy constructor
+
+Instance Variable :- Belong to an object (instance of a class)
+		     Each object has its own copy of these variables
+		     (Used when each object needs unique data)	
+
+Class Variables :- Shared among all objects
+		   Declared using static keyword
+		   Used when a value should be the same for all objects
+
+Class Methods :- Operate on static variable and can be accessed without creating an object.
+
+This keyword: this keyword in java is a reference variable that refers to current object of the class
+Why?
+It is used to differentiate between instance variables and parameters when they have the same name.
+-- It refers to the current object
+-- used to call another constructor in the same class
+class Student {
+    String name;
+    int age;
+
+    // Constructor 1
+    Student(String name) {
+        this(name, 18); // Calls constructor 2
+    }
+
+    // Constructor 2
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+Static keyword: 
+A static member belongs to the class rather than a specific instance, meaning it is shared among all objects of the class.
+Static keyword in java is used for memory management. it can be applied to variables, methods, blocks and nested classes.
+Why is it used?
+---to save memory
+---to call methods without creating an object
+---to define constants (static final is used to create constants that remain unchanged)
+
+Can a static method access non-static variables?
+❌ No, because static methods belong to the class and don’t have access to instance-specific data.
+
+Can we override a static method?
+❌ No, but we can redefine it in a subclass (method hiding).
+
+Can we have a static constructor?
+❌ No, because constructors are called during object creation, and static members belong to the class.
+
+Advantages of the static Keyword
+Memory Efficiency: Shared static members save memory as they are not duplicated for every object.
+
+
+Global Access: Static members can be accessed globally using the class name.
+Utility Functions: Static methods are ideal for utility functions (e.g., Math.sqrt()).
+
+Initialization: Static blocks allow initialization of static variables at class loading time.
+
+Limitations of the static Keyword
+No Polymorphism:
+Static methods cannot be overridden because they are bound to the class, not objects.
+
+Limited Access:
+Static methods cannot directly access instance variables or methods.
+
+Thread-Safety:
+Shared static variables may cause issues in multithreaded environments if not handled carefully.
+
+Final Keyword:
+Final keywords can be applied to variables, methods, and classes to make them immutable or prevent overriding and inheritance
+--used to restrict modifications
+--to prevent method overriding
+--to prevent inheritance
+--to improve performance
+
+instanceOf Operator:
+What is the instanceof Operator in Java?
+The instanceof operator is used to check if an object is an instance of a specific class or a subclass of it. It returns a boolean (true or false) and is primarily used for type checking before casting in polymorphism.
+
+Why is instanceof Used?
+To prevent ClassCastException – Ensures safe type casting by checking the object type before conversion.
+To check inheritance relationships – Helps verify if an object belongs to a parent or child class.
+To implement runtime polymorphism – Determines the actual type of an object at runtime.
+
+Association:- Relationship between two or more objects where one object can be related to another without being dependant on it, Association can be one-to-one, one-to-many, many-to-one, or many-to-many.
+eg:- Student and teacher have an association, a teacher can have multiple students, a student can have multiple teachers.
+
+Aggregation:- A specialized form of association where one object contains another object, but both can exist independently
+It provides has-a relationship without strong dependency, allowing reusability.
+like, an object can have another object but if the first object is removed, the another object can still exist
+For eg:- A library has books, but books can still exist if the library is gone.
+
+Java Inheritance 
+An OOPs concept where a class (child/sub class) acquires properties and behaviors from another class (parent/super class)
+it establishes is-a relationship
+Superclass (parent class): the class whose properties and behaviours are inherited by another object
+Subclass (child class): The class that inherits the parent class, a subclass can add its own properties and methods,
+it can also override or extend the behaviour of methods that are already defined in superclass.
+Why we need to use Inheritance?
+	Code Reusability (Avoids duplicate code by reusing parent class properties)
+	Access to Parent class members (A subclass can access the public and protected members of parent class)	Polymorphism Support (Enables method overriding for dynamic behaviour)
+	Hierarchical Structuring (Helps to model real world relationships)
+
+Java supports single inheritance meaning a subclass can inherit from only one superclass. However, it can still implement multiple interfaces.
+Inheritance is implemented using the 'extends' keyword.
+
+Types of Inheritance:-
+	Single Inheritance: A child class inherits from parent class.
+	Multilevel Inheritance: A child class inherits from another child class (A subclass can also serve as a superclass for another subclass)
+	Hierarchical Inheritance: Multiple classes can inherit from a single superclass
+	Multiple Inheritance (Using interfaces): Java doesn't allows multiple inheritance with classes but allows it using interfaces.
+
+Method Overriding: When a subclass provides a specific implementation for a method that is already defined in its superclass (A child class can override the parent's method using the @Override annotation)
+
+@Override annotation is optional but helps the compiler check for errors (eg wrong method signature(name, return type, parameters))
+
+Constructors are not inherited by child class. However, the child class can call the constructor of parent class using super()
+
+
+Encapsulation:
+It is the binding of data and methods that operate on the data into a single unit or class.
+It restricts direct access to some of an object's components which can be crucial for maintaining the integrity of the data, this is typically done by making the data members private and providing public getter and setter methods to access and update private variables,
+Key benefits of encapsulation:
+	Data Hiding: The internal state of object is hidden from the outside. Only the object's own methods can directly access and modify its fields
+	Increased Flexibility: 
+	Reusability
+	Controlled Access
+	Security
+
+Polymorphism:
+it allows an entity such as method or an object to take multiple forms
+Types of Polymorphism:
+Compile time polymorphism (Method overloading):- when multiple methods in the same class can have same names but different parameter and can also have different return types, the method is executed at compile time.
+Runtime polymorphism (Method overriding):-when a subclass provide an implementation of a method that is already defined in the superclass, the method gets executed at runtime
+
+Abstract Class
+Cannot be instantiated (we cannot create objects of it) It is meant to be inherited by subclasses.
+It is used when you have a common structure for multiple related classes but want each subclass to provide its own implementation for some method.
+
+Interface:
+A blueprint of class that defines a set of methods that a class must implement. It is used to achieve abstraction and multiple inheritance in java.
+key features:
+-Cannot have instance variables (constants only), all fields in interface are public, static and final by default.
+-cannot have constructors (Because they cannot be instantiated.
+-A class can implement multiple interfaces
+-can have default and static methods
+
+
+
+
+
+
+
+
+
+
+Wrapper class :- using wrapper class we can convert primitive data type into objects
+
+
+
+Why are strings immutable?
+
+When we create a string, Java first checks if the string already exists in the String Constant Pool (SCP). If it does, Java returns a reference to the existing object instead of creating a new one. Since multiple variables can reference the same string in the SCP, modifying a string directly would affect all references. To prevent this, Java makes String immutable, ensuring that any modification creates a new object instead of altering the existing one.
+
+When we create a string in Java like String s1="hello"; then an object will be created in string pool(hello) and s1 will be pointing to hello. Now if again we do String s2="hello"; then another object will not be created, but s2 will point to hello because JVM will first check if the same object is present in string pool or not. If not present, then only a new one is created, else not.
