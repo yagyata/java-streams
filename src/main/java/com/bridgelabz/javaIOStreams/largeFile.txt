@@ -1,0 +1,3 @@
+In Java, errors and exceptions are both types of throwable objects, but they represent different types of problems that can occur during the execution of a program.
+
+Errors are usually caused by serious problems that are outside the control of the program, such as running out of memory or a system crash. Errors are represented by the Error class and its subclasses. Some common examples of errors in Java include:
