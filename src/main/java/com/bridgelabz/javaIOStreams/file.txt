@@ -1,0 +1,7 @@
+Write a Java program that counts the number of words in a given text file and displays the top 5 most frequently occurring words.
+Requirements:
+Use FileReader and BufferedReader to read the file.
+Use a HashMap<String, Integer> to count word occurrences.
+Sort the words based on frequency and display the top 5.
+
+
